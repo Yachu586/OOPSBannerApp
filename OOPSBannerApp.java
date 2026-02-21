@@ -1,50 +1,50 @@
 /**
- * OOPSBannerApp - UC2: Render OOPS as Banner using Print Statements
+ * OOPSBannerApp - UC3: Render OOPS as Banner using String.join()
  *
- * <p>This program extends UC1 by displaying "OOPS" in a large banner
- * format made from spaces and '*' characters using individual print
- * statements for each line.</p>
+ * <p>This program refactors UC2 by replacing the string concatenation
+ * using the '+' operator with the String.join() method. This improves
+ * memory efficiency by reducing intermediate String object creation.</p>
  *
- * <p>Each character (O, O, P, S) is represented in a 7-line format
- * with a width of 9 characters, aligned properly using string
- * concatenation (+) operator.</p>
+ * <p>Drawback of UC2: The '+' operator creates multiple intermediate
+ * String objects in memory due to String immutability, leading to
+ * memory overhead and performance impact.</p>
  *
- * <p>Key Concepts: ASCII Art, String Manipulation, Operator Overloading,
- * Multiple Print Statements.</p>
+ * <p>Key Concepts: String.join() Method, Memory Efficiency,
+ * String Immutability, Refactoring Code.</p>
  *
  * @author Yashwanth
- * @version 2.0
+ * @version 3.0
  */
 public class OOPSBannerApp {
 
     /**
      * Main method - Entry point of the Java application.
-     * Prints "OOPS" in a banner format using '*' and ' ' characters.
-     * Each letter is 9 characters wide and 7 lines tall.
+     * Prints "OOPS" in a banner format using String.join() method
+     * with " " (space) as the delimiter for joining character patterns.
      *
      * @param args command-line arguments (not used)
      */
     public static void main(String[] args) {
 
         // Line 1: Top of O, O, P, S
-        System.out.println("  *****  " + " " + "  *****  " + " " + "******   " + " " + "  *****  ");
+        System.out.println(String.join(" ", "  *****  ", "  *****  ", "******   ", "  *****  "));
 
         // Line 2: Upper sides
-        System.out.println(" *     * " + " " + " *     * " + " " + "*     *  " + " " + " *       ");
+        System.out.println(String.join(" ", " *     * ", " *     * ", "*     *  ", " *       "));
 
         // Line 3
-        System.out.println("*       *" + " " + "*       *" + " " + "*     *  " + " " + " *       ");
+        System.out.println(String.join(" ", "*       *", "*       *", "*     *  ", " *       "));
 
         // Line 4: Middle
-        System.out.println("*       *" + " " + "*       *" + " " + "******   " + " " + "  *****  ");
+        System.out.println(String.join(" ", "*       *", "*       *", "******   ", "  *****  "));
 
         // Line 5
-        System.out.println("*       *" + " " + "*       *" + " " + "*        " + " " + "       * ");
+        System.out.println(String.join(" ", "*       *", "*       *", "*        ", "       * "));
 
         // Line 6: Lower sides
-        System.out.println(" *     * " + " " + " *     * " + " " + "*        " + " " + "       * ");
+        System.out.println(String.join(" ", " *     * ", " *     * ", "*        ", "       * "));
 
         // Line 7: Bottom of O, O, P, S
-        System.out.println("  *****  " + " " + "  *****  " + " " + "*        " + " " + "  *****  ");
+        System.out.println(String.join(" ", "  *****  ", "  *****  ", "*        ", "  *****  "));
     }
 }
