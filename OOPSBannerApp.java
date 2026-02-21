@@ -1,50 +1,35 @@
 /**
- * OOPSBannerApp - UC3: Render OOPS as Banner using String.join()
+ * OOPS Banner App - UC4: Render OOPS as Banner using String Array and Loop
  *
- * <p>This program refactors UC2 by replacing the string concatenation
- * using the '+' operator with the String.join() method. This improves
- * memory efficiency by reducing intermediate String object creation.</p>
+ * Goal: Store all banner lines in a String array and use a loop to print them,
+ *       improving modularity and reusability over UC3's individual print statements.
  *
- * <p>Drawback of UC2: The '+' operator creates multiple intermediate
- * String objects in memory due to String immutability, leading to
- * memory overhead and performance impact.</p>
- *
- * <p>Key Concepts: String.join() Method, Memory Efficiency,
- * String Immutability, Refactoring Code.</p>
- *
- * @author Yashwanth
- * @version 3.0
+ * Key Concepts:
+ *   - String Array (1D) to store banner lines
+ *   - String.join() to construct each line from character segments
+ *   - Enhanced for-each loop for clean iteration
  */
 public class OOPSBannerApp {
 
-    /**
-     * Main method - Entry point of the Java application.
-     * Prints "OOPS" in a banner format using String.join() method
-     * with " " (space) as the delimiter for joining character patterns.
-     *
-     * @param args command-line arguments (not used)
-     */
     public static void main(String[] args) {
 
-        // Line 1: Top of O, O, P, S
-        System.out.println(String.join(" ", "  *****  ", "  *****  ", "******   ", "  *****  "));
+        // Step 1: Create a String array to hold 7 banner lines
+        String[] bannerLines = new String[7];
 
-        // Line 2: Upper sides
-        System.out.println(String.join(" ", " *     * ", " *     * ", "*     *  ", " *       "));
+        // Step 2: Populate each line using String.join()
+        // Each character (O, O, P, S) is 7 lines tall, ~9 characters wide
 
-        // Line 3
-        System.out.println(String.join(" ", "*       *", "*       *", "*     *  ", " *       "));
+        bannerLines[0] = String.join("  ", " *****  ", " *****  ", "******  ", " ***** ");
+        bannerLines[1] = String.join("  ", "*     * ", "*     * ", "*     * ", "*     *");
+        bannerLines[2] = String.join("  ", "*     * ", "*     * ", "*     * ", "*      ");
+        bannerLines[3] = String.join("  ", "*     * ", "*     * ", "******  ", " ***** ");
+        bannerLines[4] = String.join("  ", "*     * ", "*     * ", "*       ", "      *");
+        bannerLines[5] = String.join("  ", "*     * ", "*     * ", "*       ", "*     *");
+        bannerLines[6] = String.join("  ", " *****  ", " *****  ", "*       ", " ***** ");
 
-        // Line 4: Middle
-        System.out.println(String.join(" ", "*       *", "*       *", "******   ", "  *****  "));
-
-        // Line 5
-        System.out.println(String.join(" ", "*       *", "*       *", "*        ", "       * "));
-
-        // Line 6: Lower sides
-        System.out.println(String.join(" ", " *     * ", " *     * ", "*        ", "       * "));
-
-        // Line 7: Bottom of O, O, P, S
-        System.out.println(String.join(" ", "  *****  ", "  *****  ", "*        ", "  *****  "));
+        // Step 3: Use enhanced for-each loop to print each banner line
+        for (String line : bannerLines) {
+            System.out.println(line);
+        }
     }
 }
